@@ -787,12 +787,13 @@ bool CResult::ParagraphProcessing(const char *sParagraph,char *sResult)
 	return true;
 }
 
-bool CResult::ParagraphProcessingA(const char *sParagraph, result_t *result_arr, int &result_num)
+bool CResult::ParagraphProcessingA(const char *sParagraph, result_t *result_arr, int &result_num, char *sSentence)
 {
-	char *sSentence,sChar[3];
+	//char *sSentence,sChar[3];
+	char sChar[3];
 	//char *sSentenceResult;
-	unsigned int nLen=strlen(sParagraph)+13;
-	sSentence=new char[nLen];//malloc buffer
+	//unsigned int nLen=strlen(sParagraph)+13;
+	//sSentence=new char[nLen];//malloc buffer
 	//sSentenceResult=new char[nLen*3];//malloc buffer
 	sSentence[0]=0;
 	unsigned int nPosIndex=0,nParagraphLen=strlen(sParagraph);
@@ -859,7 +860,7 @@ bool CResult::ParagraphProcessingA(const char *sParagraph, result_t *result_arr,
 		Processing(sSentence,1);//Processing and output the result of current sentence.
 		OutputA(m_pResult[0], curr_pos, result_num, result_arr, bFirstIgnore);
 	}
-	delete []  sSentence;//FREE sentence buffer 	
+	//delete []  sSentence;//FREE sentence buffer 	
 	//delete []  sSentenceResult;//free buffer
 	return true;
 }

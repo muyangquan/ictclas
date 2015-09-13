@@ -58,6 +58,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
     try {
         char output[1024*100];
+		char tmp_buf[1024*100];
 		// the argument is the directory where "Data" is located.  It should be ended with a "/"
         CResult  result(get_exe_path()); 
         string s;
@@ -70,7 +71,7 @@ int main(int argc, char* argv[]) {
 			const int kNum = s.size();
 			CResult::result_t result_arr[kNum];
 			int result_num;
-			result.ParagraphProcessingA(s.c_str(), result_arr, result_num);
+			result.ParagraphProcessingA(s.c_str(), result_arr, result_num, tmp_buf);
 			printf("%s\n", s.c_str());
 			printf("==============================================>\n");
 			for(int i = 0; i < result_num; ++i){

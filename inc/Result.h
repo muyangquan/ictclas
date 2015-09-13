@@ -37,7 +37,19 @@ public:
 		int    part_of_speech; //词性(参见PKU2973POS()函数中的nHandleSet数组及doc/part_of_speech.txt文件)
 		double value;          //The -log(frequency/MAX)
 	};
-	bool ParagraphProcessingA(const char *sParagraph, result_t *result_arr, int &result_num);
+
+	/**
+	 * @brief 切词
+	 * 对一个段落进行切词.
+	 *
+	 * @param [sParagraph]: 段落
+	 * @param [result_arr]: 结果数组, 用于保存切词之后的结果.
+	 * @param [result_num]: 保存得到的结果数
+	 * @param [sSentence] : 临时缓冲区, 大小为 strlen(sParagraph)+13.
+	 *
+	 * @return true
+	 */
+	bool ParagraphProcessingA(const char *sParagraph, result_t *result_arr, int &result_num, char *sSentence);
 	bool OutputA(PWORD_RESULT pItem, int &curr_pos, int &result_num, result_t *result_arr, 
 			bool bFirstWordIgnore=false);
 
